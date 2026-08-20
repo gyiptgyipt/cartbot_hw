@@ -12,7 +12,7 @@ def generate_launch_description():
             FindPackageShare("cartbot_hw"),
             "description",
             "urdf",
-            "ddsm115_base.urdf",
+            "cartbot.urdf",
         ]
     )
     default_controllers_file = PathJoinSubstitution(
