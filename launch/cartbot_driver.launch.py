@@ -9,7 +9,7 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     default_robot_description_file = PathJoinSubstitution(
         [
-            FindPackageShare("ddsm115_motor_driver_ros2"),
+            FindPackageShare("cartbot_hw"),
             "description",
             "urdf",
             "ddsm115_base.urdf",
@@ -17,14 +17,14 @@ def generate_launch_description():
     )
     default_controllers_file = PathJoinSubstitution(
         [
-            FindPackageShare("ddsm115_motor_driver_ros2"),
+            FindPackageShare("cartbot_hw"),
             "config",
             "ros2_control.yaml",
         ]
     )
     default_twist_mux_file = PathJoinSubstitution(
         [
-            FindPackageShare("ddsm115_motor_driver_ros2"),
+            FindPackageShare("cartbot_hw"),
             "config",
             "twist_mux.yaml",
         ]
