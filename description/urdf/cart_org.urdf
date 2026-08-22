@@ -1,29 +1,7 @@
 <?xml version="1.0"?>
 <robot name="cartbot">
-  <link name="base_footprint"/>
-
   <link name="base_link">
     <!-- Bottom frame - front bar -->
-    <visual>
-      <origin xyz="0.24 0 0.01" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.4 0.02"/>
-      </geometry>
-      <material name="gray">
-        <color rgba="0.5 0.5 0.5 1.0"/>
-      </material>
-    </visual>
-    <!-- Bottom frame - back bar -->
-    <visual>
-      <origin xyz="-0.24 0 0.01" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.4 0.02"/>
-      </geometry>
-      <material name="gray">
-        <color rgba="0.5 0.5 0.5 1.0"/>
-      </material>
-    </visual>
-    <!-- Bottom frame - left bar -->
     <visual>
       <origin xyz="0 0.19 0.01" rpy="0 0 0"/>
       <geometry>
@@ -33,7 +11,7 @@
         <color rgba="0.5 0.5 0.5 1.0"/>
       </material>
     </visual>
-    <!-- Bottom frame - right bar -->
+    <!-- Bottom frame - back bar -->
     <visual>
       <origin xyz="0 -0.19 0.01" rpy="0 0 0"/>
       <geometry>
@@ -43,28 +21,28 @@
         <color rgba="0.5 0.5 0.5 1.0"/>
       </material>
     </visual>
+    <!-- Bottom frame - left bar -->
+    <visual>
+      <origin xyz="0.24 0 0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.4 0.02"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <!-- Bottom frame - right bar -->
+    <visual>
+      <origin xyz="-0.24 0 0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.4 0.02"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
 
     <!-- Top frame - front bar -->
-    <visual>
-      <origin xyz="0.24 0 0.21" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.4 0.02"/>
-      </geometry>
-      <material name="gray">
-        <color rgba="0.5 0.5 0.5 1.0"/>
-      </material>
-    </visual>
-    <!-- Top frame - back bar -->
-    <visual>
-      <origin xyz="-0.24 0 0.21" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.02 0.4 0.02"/>
-      </geometry>
-      <material name="gray">
-        <color rgba="0.5 0.5 0.5 1.0"/>
-      </material>
-    </visual>
-    <!-- Top frame - left bar -->
     <visual>
       <origin xyz="0 0.19 0.21" rpy="0 0 0"/>
       <geometry>
@@ -74,11 +52,31 @@
         <color rgba="0.5 0.5 0.5 1.0"/>
       </material>
     </visual>
-    <!-- Top frame - right bar -->
+    <!-- Top frame - back bar -->
     <visual>
       <origin xyz="0 -0.19 0.21" rpy="0 0 0"/>
       <geometry>
         <box size="0.5 0.02 0.02"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <!-- Top frame - left bar -->
+    <visual>
+      <origin xyz="0.24 0 0.21" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.4 0.02"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <!-- Top frame - right bar -->
+    <visual>
+      <origin xyz="-0.24 0 0.21" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.4 0.02"/>
       </geometry>
       <material name="gray">
         <color rgba="0.5 0.5 0.5 1.0"/>
@@ -98,7 +96,7 @@
     </visual>
     <!-- Front-right vertical -->
     <visual>
-      <origin xyz="0.24 -0.19 0.11" rpy="0 0 0"/>
+      <origin xyz="-0.24 0.19 0.11" rpy="0 0 0"/>
       <geometry>
         <box size="0.02 0.02 0.2"/>
       </geometry>
@@ -108,7 +106,7 @@
     </visual>
     <!-- Back-left vertical -->
     <visual>
-      <origin xyz="-0.24 0.19 0.11" rpy="0 0 0"/>
+      <origin xyz="0.24 -0.19 0.11" rpy="0 0 0"/>
       <geometry>
         <box size="0.02 0.02 0.2"/>
       </geometry>
@@ -136,15 +134,9 @@
     </collision>
   </link>
 
-  <joint name="base_footprint_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </joint>
-
   <link name="front_left_wheel_link">
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 -0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -153,7 +145,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 -0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -162,13 +154,13 @@
   <joint name="front_left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="front_left_wheel_link"/>
-    <origin xyz="0 0.13 0.0" rpy="0 0 0"/>
+    <origin xyz="0.15 0.18 0.0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <link name="front_right_wheel_link">
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -177,7 +169,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -186,13 +178,13 @@
   <joint name="front_right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="front_right_wheel_link"/>
-    <origin xyz="0 -0.13 0.0" rpy="0 0 0"/>
+    <origin xyz="0.15 -0.18 0.0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <link name="rear_left_caster_link">
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 -0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -201,7 +193,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 -0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -210,13 +202,13 @@
   <joint name="rear_left_caster_joint" type="continuous">
     <parent link="base_link"/>
     <child link="rear_left_caster_link"/>
-    <origin xyz="0.24 0 0.0" rpy="0 0 0"/>
+    <origin xyz="-0.15 0.18 0.0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
   <link name="rear_right_caster_link">
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -225,7 +217,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <origin xyz="0 0.05 0" rpy="1.5708 0 0"/>
       <geometry>
         <cylinder radius="0.0504" length="0.043"/>
       </geometry>
@@ -234,54 +226,8 @@
   <joint name="rear_right_caster_joint" type="continuous">
     <parent link="base_link"/>
     <child link="rear_right_caster_link"/>
-    <origin xyz="-0.24 0 0.0" rpy="0 0 0"/>
+    <origin xyz="-0.15 -0.18 0.0" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
-  </joint>
-
-  <!-- Suspended from the centre of the front top rail. -->
-  <link name="lidar_link">
-    <visual>
-      <origin xyz="0 0 -0.035" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.035" length="0.05"/>
-      </geometry>
-      <material name="lidar_blue">
-        <color rgba="0.05 0.25 0.45 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 -0.035" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.035" length="0.05"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="lidar_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="lidar_link"/>
-    <origin xyz="0.24 0 0.21" rpy="0 0 0"/>
-  </joint>
-
-  <!-- IMU mounted at the centre of the top frame. -->
-  <link name="imu_link">
-    <visual>
-      <geometry>
-        <box size="0.04 0.04 0.02"/>
-      </geometry>
-      <material name="imu_orange">
-        <color rgba="0.95 0.35 0.05 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.04 0.04 0.02"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="imu_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="imu_link"/>
-    <origin xyz="0 0 0.23" rpy="0 0 0"/>
   </joint>
 
 
